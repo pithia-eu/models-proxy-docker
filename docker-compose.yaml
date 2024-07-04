@@ -1,0 +1,26 @@
+version: '3.5'
+
+volumes:
+  certificates:
+
+services:
+  cert:
+    container_name: models-proxy-ssl
+    image: uowcpc/pithia-models-proxy:latest
+    build:
+      context: cert/
+      args:
+        - SERVICE_URL=http://172.16.36.177
+        - SERVICE_DOMAIN=models.pithia.eu
+        - SERVICE_EMAIL=kagiald1@westminster.ac.uk
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - certificates:/etc/letsencrypt
+    healthcheck:
+      test: [ 'CMD', '/opt/status.sh' ]
+      start_period: 30s
+      interval: 1m
+      timeout: 5s
+    restart: unless-stopped

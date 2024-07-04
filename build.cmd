@@ -1,0 +1,3 @@
+@echo off
+echo Building API containers...
+docker compose -p models-proxy-ssl up -d --build --remove-orphans
