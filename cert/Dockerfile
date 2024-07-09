@@ -1,6 +1,6 @@
 FROM nginx:1.21-alpine
 
-MAINTAINER Levente Farkas (levente.farkas@egi.eu)
+MAINTAINER Dimitris Kagialis (d.kagialis1@westminster.ac.uk)
 
 # Build-time variables specified by docker-compose.yml / .env
 ARG SERVICE_URL
