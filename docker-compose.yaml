@@ -5,14 +5,14 @@ volumes:
 
 services:
   cert:
-    container_name: models-proxy-ssl
+    container_name: pithia-models-proxy
     image: uowcpc/pithia-models-proxy:latest
     build:
       context: cert/
       args:
         - SERVICE_URL=http://172.16.36.177
         - SERVICE_DOMAIN=models.pithia.eu
-        - SERVICE_EMAIL=kagiald1@westminster.ac.uk
+        - SERVICE_EMAIL=d.kagialis1@westminster.ac.uk
     ports:
       - "80:80"
       - "443:443"
